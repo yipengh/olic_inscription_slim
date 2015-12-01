@@ -18,7 +18,7 @@
         </div>
         <div class="form-group col-md-12">
             <label>Adresse professionelles:</label>
-            <input class="form-control" type="text" name="address" required>
+            <input class="form-control" type="text" name="address">
         </div>
         <div class="form-group col-md-12">
             <label>Email:<sup>*</sup></label>
