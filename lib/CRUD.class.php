@@ -94,10 +94,12 @@ class CRUD
             return false;
         }
 
+        function mapKeyValue($k, $v) {
+            return $k . '=' . $v;
+        }
+
         $sql = 'UPDATE ' . $tablename . ' ' . 
-            'SET ' . implode(',', array_map(function($k, $v) {
-                    return $k . '=' . $v;
-                }, $data['fields'], $data['values'])) . ' ' . 
+            'SET ' . implode(',', array_map('mapKeyValue', $data['fields'], $data['values'])) . ' ' . 
             'WHERE id=' . $id;
 
         if ($db->exec($sql) === 1) {
