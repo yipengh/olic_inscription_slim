@@ -63,11 +63,12 @@ function validate($id, $ref) {
 
     $id = CRUD::update($app->db, 'inscription', $id, array('validated' => 1));
     if ($id !== false) {
-        $userInfo = CRUD::select($app->db, array(
+        $userInfos = CRUD::select($app->db, array(
             'table' => 'inscription',
             'where' => 'id=' . $id,
             'limit' => 1
-        ))[0];
+        ));
+        $userInfo = $userInfos[0];
         $app->mailer->sendUserValidationSuccess($userInfo);
         
         $app->render('validation_success.html');
