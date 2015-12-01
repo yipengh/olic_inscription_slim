@@ -1,5 +1,7 @@
 <?php
 
+require_once 'PHPMailer/PHPMailerAutoload.php';
+
 class Mailer {
     public function sendUserInscriptionSuccess($userInfo)
     {

@@ -1,6 +1,12 @@
 <?php
 
-require '../vendor/autoload.php';
+require_once '../lib/Slim/Slim/Slim.php';
+
+require_once '../lib/CRUD.class.php';
+require_once '../lib/Mailer.class.php';
+require_once '../lib/Utils.class.php';
+
+require_once '../config/config.php';
 
 // Prepare app
 $app = new Slim(array(
@@ -54,7 +60,7 @@ $app->get('/validate/:id/:ref', 'validate')->name('validate')
     ));
 function validate($id, $ref) {
     $app = Slim::getInstance();
-    
+
     $id = CRUD::update($app->db, 'inscription', $id, array('validated' => 1));
     if ($id !== false) {
         $userInfo = CRUD::select($app->db, array(
