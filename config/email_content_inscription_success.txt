@@ -1,13 +1,13 @@
-Bonjour,
-
-Vous venez de demander votre inscription à la journée dédiée au projet OLIC - Optimisation de la Logistique d'Intervention pour les Catastrophes majeures.
-
-  - Référence dossier: {{USER_REFERENCE}}
-  - Email: {{USER_EMAIL}}
-
-Nous allons traiter votre requête.
-
-Cordialement,
-
-Andréa Duhamel et Bernard Allenbach
-Organisateurs de la journée dédiée au projet OLIC
+Bonjour,<br>
+<br>
+Vous venez de demander votre inscription à la journée dédiée au projet OLIC - Optimisation de la Logistique d'Intervention pour les Catastrophes majeures.<br>
+<br>
+  - Référence dossier: {{USER_REFERENCE}}<br>
+  - Email: {{USER_EMAIL}}<br>
+<br>
+Nous allons traiter votre requête.<br>
+<br>
+Cordialement,<br>
+<br>
+Andréa Duhamel et Bernard Allenbach<br>
+Organisateurs de la journée dédiée au projet OLIC<br>

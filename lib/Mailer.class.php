@@ -8,7 +8,6 @@ class Mailer {
         $body = file_get_contents('../config/email_content_inscription_success.txt');
         $body = str_replace('{{USER_REFERENCE}}', $userInfo['ref'], $body);
         $body = str_replace('{{USER_EMAIL}}', $userInfo['email'], $body);
-        $body = str_replace("\r\n", '<br>', $body);
 
         return self::send($userInfo['email'], $subject, $body);
     }
@@ -58,7 +57,6 @@ class Mailer {
         $subject = 'Confirmation de l\'inscription au colloque OLIC 2016';
 
         $body = file_get_contents('../config/email_content_validation_success.txt');
-        $body = str_replace("\r\n", '<br>', $body);
 
         return self::send($userInfo['email'], $subject, $body);
     }
