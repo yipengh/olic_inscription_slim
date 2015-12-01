@@ -14,3 +14,9 @@ define('DB_HOST',     'mysql-yipengpm.alwaysdata.net');
 define('DB_USERNAME', 'yipengpm');
 define('DB_PASSWORD', 'Hyp613090');
 define('DB_NAME',     'yipengpm_olic');
+/*
+define('DB_HOST',     'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME',     'olic');
+*/

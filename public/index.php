@@ -3,7 +3,7 @@
 require '../vendor/autoload.php';
 
 // Prepare app
-$app = new \Slim\Slim(array(
+$app = new Slim(array(
     'templates.path' => '../templates',
 ));
 
@@ -15,12 +15,17 @@ $app->db = new PDO($app->db_dsn, DB_USERNAME, DB_PASSWORD);
 $app->mailer = new Mailer();
 
 // Define routes
-$app->get('/', function() use ($app) {
+$app->get('/', 'getForm')->name('root');
+function getForm() {
+    $app = Slim::getInstance();
     $app->render('form.php');
-})->name('root');
+}
 
-$app->post('/', function() use ($app) {
-    $data = $app->request->post();
+$app->post('/', 'postForm');
+function postForm() {
+    $app = Slim::getInstance();
+
+    $data = $app->request()->post();
 
     $data['birthday'] = Utils::dateFR2SQL('/', $data['birthday']);
     $data['ref'] = bin2hex(openssl_random_pseudo_bytes(4, $cstrong));
@@ -40,9 +45,16 @@ $app->post('/', function() use ($app) {
     } else {
         $app->render('error.html');
     }
-});
+}
 
-$app->get('/validate/:id/:ref', function($id, $ref) use ($app) {
+$app->get('/validate/:id/:ref', 'validate')->name('validate')
+    ->conditions(array(
+        'id' => '[0-9]+',
+        'ref' => '[0-9a-zA-Z]{8}'
+    ));
+function validate($id, $ref) {
+    $app = Slim::getInstance();
+    
     $id = CRUD::update($app->db, 'inscription', $id, array('validated' => 1));
     if ($id !== false) {
         $userInfo = CRUD::select($app->db, array(
@@ -56,31 +68,7 @@ $app->get('/validate/:id/:ref', function($id, $ref) use ($app) {
     } else {
         $app->render('error.html');
     }
-})->name('validate')
-    ->conditions(array(
-        'id' => '[0-9]+',
-        'ref' => '[0-9a-zA-Z]{8}'
-    ));
-
-$app->get('/mail', function() use ($app) {
-    $mailer = new Mailer();
-    $ok = $mailer->sendUserInscriptionSuccess(array(
-        'lastname' => 'Huang',
-        'firstname' => 'Yipeng',
-        'affiliation' => 'utt',
-        'email' => 'yipeng.huang@utt.fr',
-        'birthday' => '13/06/1990',
-        'birthplace' => 'Beijing',
-        'address' => '82 Avenue Pasteur',
-        'nationality' => 'chinoise',
-        'event0' => '1',
-        'event1' => '1',
-        'event2' => '0',
-        'ref' => 'DX46FY55',
-    ));
-
-    if (!$ok) echo 'Failed to send email.';
-});
+}
 
 // Run app
 $app->render('header.html');
