@@ -33,11 +33,11 @@ class Mailer {
         $body = 'Informations:<br>';
         foreach ($userInfo as $key => $value) {
             if ($key === 'event0') {
-                $body .= $value === '1' ? '<br>Participation matin' : '<br>';
+                $body .= $value == 1 ? '<br>Participation matin' : '<br>';
             } else if ($key === 'event1') {
-                $body .= $value === '1' ? 'Participation déjeuner' : '';
+                $body .= $value == 1 ? 'Participation déjeuner' : '';
             } else if ($key === 'event2') {
-                $body .= $value === '1' ? 'Participation après-midi<br>' : '';
+                $body .= $value == 1 ? 'Participation après-midi<br>' : '';
             } else {
                 $body .= '  - ';
                 $body .= $keyMap[$key];
