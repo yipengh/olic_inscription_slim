@@ -40,7 +40,7 @@ $app->post('/', function() use ($app) {
 });
 
 $app->get('/validate/:id/:ref', function($id, $ref) use ($app) {
-    $id = CRUD::update($app->db, 'inscription', $id, array('status' => 1));
+    $id = CRUD::update($app->db, 'inscription', $id, array('validated' => 1));
     if ($id !== false) {
         $userInfo = CRUD::select($app->db, array(
             'table' => 'inscription',
