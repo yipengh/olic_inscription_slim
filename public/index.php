@@ -42,6 +42,13 @@ $app->post('/', function() use ($app) {
 $app->get('/validate/:id/:ref', function($id, $ref) use ($app) {
     $id = CRUD::update($app->db, 'inscription', $id, array('status' => 1));
     if ($id !== false) {
+        $userInfo = CRUD::select($app->db, array(
+            'table' => 'inscription',
+            'where' => 'id=' . $id,
+            'limit' => 1
+        ))[0];
+        $app->mailer->sendUserValidationSuccess($userInfo);
+        
         $app->render('validation_success.html');
     } else {
         $app->render('error.html');
