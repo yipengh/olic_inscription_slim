@@ -2,38 +2,38 @@
     <fieldset>
         <legend><strong>Informations personnelles</strong></legend>
         <div class="alert alert-info">
-            Informations obligatoires
+            Les champs marqu&acute;s par <span class="mandat">*</span> sont obligatoires
         </div>
         <div class="form-group col-md-6">
-            <label>Nom:</label>
+            <label>Nom:<sup>*</sup></label>
             <input class="form-control" type="text" name="lastname" required>
         </div>
         <div class="form-group col-md-6">
-            <label>Pr&eacute;nom:</label>
+            <label>Pr&eacute;nom:<sup>*</sup></label>
             <input class="form-control" type="text" name="firstname" required>
         </div>
         <div class="form-group col-md-12">
-            <label>Affiliation:</label>
+            <label>Affiliation:<sup>*</sup></label>
             <input class="form-control" type="text" name="affiliation" required>
         </div>
         <div class="form-group col-md-12">
-            <label>Email:</label>
-            <input class="form-control" type="email" name="email" required>
-        </div>
-        <div class="form-group col-md-6">
-            <label>Date de naissance (jj/mm/aaaa):</label>
-            <input class="form-control" type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[0-1])/(0[1-9]|1[0-2])/(19[0-9][0-9])" name="birthday" required>
-        </div>
-        <div class="form-group col-md-6">
-            <label>Lieu de naissance:</label>
-            <input class="form-control" type="text" name="birthplace" required>
-        </div>
-        <div class="form-group col-md-12">
-            <label>Adresse:</label>
+            <label>Adresse professionelles:</label>
             <input class="form-control" type="text" name="address" required>
         </div>
         <div class="form-group col-md-12">
-            <label>Nationalit&eacute;:</label>
+            <label>Email:<sup>*</sup></label>
+            <input class="form-control" type="email" name="email" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Date de naissance (jj/mm/aaaa):<sup>*</sup></label>
+            <input class="form-control" type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[0-1])/(0[1-9]|1[0-2])/(19[0-9][0-9])" name="birthday" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Lieu de naissance:<sup>*</sup></label>
+            <input class="form-control" type="text" name="birthplace" required>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Nationalit&eacute;:<sup>*</sup></label>
             <input class="form-control" type="text" name="nationality" required>
         </div>
     </fieldset>
