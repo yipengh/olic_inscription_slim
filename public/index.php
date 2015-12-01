@@ -18,7 +18,22 @@ $app->post('/', function() use ($app) {
 
 $app->get('/mail', function() use ($app) {
     $mailer = new Mailer();
-    $mailer->send('huang.ypeng@gmail.com', 'test from OLIC2016', '<strong>test!</strong>', 'test!');
+    $ok = $mailer->sendAdminValidation(array(
+        'lastname' => 'Huang',
+        'firstname' => 'Yipeng',
+        'affiliation' => 'utt',
+        'email' => 'huang.ypeng@gmail.com',
+        'birthday' => '13/06/1990',
+        'birthplace' => 'Beijing',
+        'address' => '82 Avenue Pasteur',
+        'nationality' => 'chinoise',
+        'event0' => '1',
+        'event1' => '1',
+        'event2' => '0',
+        'ref' => 'DX46FY55',
+    ), 'http://olic.utt.fr/inscription/validate/DX46FY55');
+
+    if (!$ok) echo 'Failed to send email.';
 });
 
 // Run app
