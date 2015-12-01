@@ -34,6 +34,15 @@ class Utils
         $data = htmlspecialchars($data);
         return $data;
     }
+
+    public static randString($length) {
+        $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $char = str_shuffle($char);
+        for($i = 0, $rand = '', $l = strlen($char) - 1; $i < $length; $i ++) {
+            $rand .= $char{mt_rand(0, $l)};
+        }
+        return $rand;
+    }
 }
 
 // END /lib/Utils.class.php

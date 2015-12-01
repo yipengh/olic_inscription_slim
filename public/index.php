@@ -34,7 +34,8 @@ function postForm() {
     $data = $app->request()->post();
 
     $data['birthday'] = Utils::dateFR2SQL('/', $data['birthday']);
-    $data['ref'] = bin2hex(openssl_random_pseudo_bytes(4, $cstrong));
+    //$data['ref'] = bin2hex(openssl_random_pseudo_bytes(4, $cstrong));
+    $data['ref'] = Utils::randString(8);
     Utils::parseEvents($data);
     foreach ($data as $key => $value) {
         $data[$key] = Utils::cleanInput($value);
