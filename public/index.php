@@ -25,6 +25,9 @@ $app->post('/', function() use ($app) {
     $data['birthday'] = Utils::dateFR2SQL('/', $data['birthday']);
     $data['ref'] = bin2hex(openssl_random_pseudo_bytes(4, $cstrong));
     Utils::parseEvents($data);
+    foreach ($data as $key => $value) {
+        $data[$key] = Utils::cleanInput($value);
+    }
 
     $id = CRUD::insert($app->db, 'inscription', $data);
     if ($id !== false) {

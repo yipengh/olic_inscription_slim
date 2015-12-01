@@ -27,6 +27,13 @@ class Utils
         }
         unset($data['events']);
     }
+
+    public static function cleanInput($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 }
 
 // END /lib/Utils.class.php
