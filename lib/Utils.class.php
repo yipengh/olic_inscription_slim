@@ -35,7 +35,7 @@ class Utils
         return $data;
     }
 
-    public static randString($length) {
+    public static function randString($length) {
         $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $char = str_shuffle($char);
         for($i = 0, $rand = '', $l = strlen($char) - 1; $i < $length; $i ++) {
