@@ -2,7 +2,7 @@
     <fieldset>
         <legend><strong>Informations personnelles</strong></legend>
         <div class="alert alert-info">
-            Les champs marqu&acute;s par <span class="mandat">*</span> sont obligatoires
+            Les champs marqu&eacute;s par <span class="mandat">*</span> sont obligatoires
         </div>
         <div class="form-group col-md-6">
             <label>Nom:<sup>*</sup></label>
