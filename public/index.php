@@ -14,8 +14,9 @@ $app = new Slim(array(
 ));
 
 // Injection - DB instance
-$app->db_dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';charset=UTF8';
+$app->db_dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';charset=utf8';
 $app->db = new PDO($app->db_dsn, DB_USERNAME, DB_PASSWORD);
+$app->db->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES 'utf8'");
 
 // Injection - mailer wrapper
 $app->mailer = new Mailer();

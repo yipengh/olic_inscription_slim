@@ -15,7 +15,7 @@ class CRUD
 
         // treat values
         foreach ($values as $i => $value) {
-            $values[$i] = $db->quote((string) $value);
+            $values[$i] = $db->quote(utf8_decode((string) $value));
         }
 
         return array(
