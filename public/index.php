@@ -14,7 +14,7 @@ $app = new Slim(array(
 ));
 
 // Injection - DB instance
-$app->db_dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST;
+$app->db_dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';charset=UTF8';
 $app->db = new PDO($app->db_dsn, DB_USERNAME, DB_PASSWORD);
 
 // Injection - mailer wrapper
