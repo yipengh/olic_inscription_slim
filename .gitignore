@@ -1,2 +1,5 @@
 /vendor/
+/_bak_olic_site/
 composer.lock
+*.old
+*.bak
