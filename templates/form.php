@@ -19,6 +19,11 @@
             au responsable du colloque.
             </em>
         </div>
+        <div class="alert alert-danger">
+            <strong>Attention: </strong>
+            Les informations sont requises pour remplir les mesures de s&eacute;curit&eacute; de l'&Eacute;cole Militaire. 
+            Merci pour votre compr&eacute;hension.
+        </div>
         <div class="form-group col-md-6">
             <label>Nom:<sup>*</sup></label>
             <input class="form-control" type="text" name="lastname" required>
@@ -32,8 +37,8 @@
             <input class="form-control" type="text" name="affiliation" required>
         </div>
         <div class="form-group col-md-12">
-            <label>Adresse professionelle:</label>
-            <input class="form-control" type="text" name="address">
+            <label>Adresse personnelle:<sup>*</sup></label>
+            <input class="form-control" type="text" name="address" required>
         </div>
         <div class="form-group col-md-12">
             <label>Email:<sup>*</sup></label>
