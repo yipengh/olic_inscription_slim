@@ -33,6 +33,29 @@ function postForm() {
     $app = Slim::getInstance();
 
     $data = $app->request()->post();
+    $isDataValid = isset(
+        $data['lastname'],
+        $data['firstname'],
+        $data['affiliation'],
+        $data['address'],
+        $data['email'],
+        $data['birthday'],
+        $data['birthplace'],
+        $data['nationality']
+    ) && !empty($data['lastname']) &&
+    !empty($data['firstname']) &&
+    !empty($data['affiliation']) &&
+    !empty($data['address']) &&
+    !empty($data['email']) &&
+    !empty($data['birthday']) &&
+    !empty($data['birthplace']) &&
+    !empty($data['nationality']);
+
+    if (!$isDataValid) {
+        $app->flash('error', 'Informations incomplètes. Veuillez renseigner tous les champs requis.');
+        $app->render('form.php', compact('data'));
+        return;
+    }
 
     $data['birthday'] = Utils::dateFR2SQL('/', $data['birthday']);
     //$data['ref'] = bin2hex(openssl_random_pseudo_bytes(4, $cstrong));
